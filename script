@@ -1,0 +1,57 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt-get -y install python-pip
+pip -V
+
+#MySQL installtion
+
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+sudo mysql_install_db
+mysql --version
+sudo mysqld --initialize
+service mysql status
+mysqladmin -p -u root version
+
+#mysql python
+sudo apt-get install python-dev libmysqlclient-dev
+pip install MySQL-python
+
+#pymongo
+python -m pip install pymongo[gssapi,tls]
+
+#twiiter wrapper
+sudo pip install twitter==1.17.1
+
+#numpy etc
+sudo apt-get install python-numpy python-scipy python-matplotlib
+
+#facebook sdk
+sudo apt-get install virtualenv
+virtualenv facebookenv
+source facebookenv/bin/activate
+
+sudo pip install facebook-sdk
+
+#scikit
+sudo pip install -U scikit-learn
+
+#igraph
+sudo pip install python-igraph
+
+#NLTK
+sudo pip install -U nltk
+
+#netwrokx
+sudo pip install networkx[all]
+
+#gephi
+wget https://github.com/gephi/gephi/releases/download/v0.9.1/gephi-0.9.1-linux.tar.gz
+tar -xvzf gephi-0.9.1-linux.tar.gz
+sudo apt-get update && sudo apt-get install libgstreamer-plugins-*
+cd gephi-0.9.1/bin/
+./gephi
+
+
+
+
